@@ -6,3 +6,7 @@ CREATE TABLE `movies`.`movie_table` (
   `desc` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`));
 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+FLUSH PRIVILEGES;
+

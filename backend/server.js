@@ -6,8 +6,8 @@ const app = express();
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "",
-  password: "",
+  user: "root",
+  password: "password",
   database: "movies",
 });
 
@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(cors());
 
 // if authentication problem, use
-// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass'
+// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+// flush privileges;
 
 app.get("/", (req, res) => {
   res.json("Welcome to the home page");
