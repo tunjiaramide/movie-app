@@ -9,6 +9,7 @@ function Add() {
   })
 
   const navigate = useNavigate()
+  const hostname = window.location.hostname;
 
   const handleChange = (e) => {
     setMovie(prev => ({...prev, [e.target.name]: e.target.value}))
@@ -17,7 +18,8 @@ function Add() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-        await axios.post('http://localhost:5000/movies', movie)
+        await axios.post(`http://${hostname}:5000/movies`, movie)
+        
         navigate('/')
     }catch(err) {
       console.log(err)

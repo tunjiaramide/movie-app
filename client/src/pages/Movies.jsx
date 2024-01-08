@@ -6,11 +6,12 @@ import Movie from '../component/Movie';
 
 function Movies() {
   const [ Movies, setMovies] = useState([]);
+  const hostname = window.location.hostname;
 
   useEffect(() => {
     const fetchAllMovies = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/movies')
+        const res = await axios.get(`http://${hostname}:5000/movies`)
         setMovies(res.data);
         console.log(res.data);
       } catch (err) {

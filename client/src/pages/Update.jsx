@@ -10,6 +10,7 @@ function Update() {
 
   const navigate = useNavigate()
   const location = useLocation()
+  const hostname = window.location.hostname;
 
   const movieId = location.pathname.split('/')[2];
 
@@ -21,7 +22,7 @@ function Update() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-        await axios.put(`http://localhost:5000/movie/${movieId}`, movie)
+        await axios.put(`http://${hostname}:5000/movie/${movieId}`, movie)
         navigate('/')
     }catch(err) {
       console.log(err)
